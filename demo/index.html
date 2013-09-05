@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>input filter Demo - X-Tag</title>
+    <link rel="stylesheet" type="text/css" href="/dist/inativ-x.css"/>
+    <style>
+        .eraser:before {
+            content: "X";
+        }
+        .eraser {
+            cursor: pointer;
+            width: 10px;
+            position: absolute;
+            left: 146px;
+            top: 12px;
+        }
+        #current-filter {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <x-inputfilter id="filter"></x-inputfilter>
+    <div id="current-filter"></div>
+</body>
+
+<script type="text/javascript" src="/demo/x-tag-core.js"></script>      
+<script type="text/javascript" src="/demo/main.js"></script>      
+<script type="text/javascript">
+
+    document.addEventListener('DOMComponentsLoaded', function(){
+        document.addEventListener('filter', function(e) {
+            var currentFilter = document.getElementById("current-filter");
+            currentFilter.innerHTML = "Filtre: "+e.detail.filterValue;
+        });
+    }, false);
+
+</script>
+
+</html>
