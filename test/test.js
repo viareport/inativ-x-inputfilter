@@ -27,6 +27,22 @@ testSuite.addTest("Input filter test", function(scenario, asserter) {
     }, 'Après un clic sur erase, le contenu de l\'input doit être vide');
 });
 
+testSuite.addTest("Input filter propagation test", function(scenario, asserter) {
+    var inputWrapper = document.getElementById("inputFilterWrapper");
+
+    var isDivClicked = false;
+    var monTest = this;
+    inputWrapper.addEventListener('click', function clickOnDiv(e) {
+        monTest.isDivClicked = true;
+    });
+
+    scenario
+        .click("#filter input");
+
+    asserter.assertTrue(function() {
+        return monTest.isDivClicked;
+    }, 'Le click sur l\'input doit être propagé');
+});
 
 document.addEventListener('DOMComponentsLoaded', function(){
     testSuite.run();

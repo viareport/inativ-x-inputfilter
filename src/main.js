@@ -28,13 +28,8 @@ require('inativ-x-eraser');
         },
         events : {
             'keyup': function (e) {
-                e.stopPropagation();
                 e.preventDefault();
                 this.onFilterUpdate();
-            },
-            click : function(e) {
-                e.stopPropagation();
-                e.preventDefault();
             },
             erased: function() {
                 if('' !== this._input.value) {
