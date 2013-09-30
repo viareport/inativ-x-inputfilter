@@ -42,7 +42,13 @@ require('inativ-x-eraser');
                 this._div.appendChild(this._eraser);
 
                 this._input = document.createElement('input');
+                if(this.getAttribute('placeholder')) {
+                    this._input.placeholder = this.getAttribute('placeholder');
+                }
                 this._input.type = 'text';
+                if (this.getAttribute('defaultFilter')) {
+                    this._input.value = this.getAttribute('defaultFilter');
+                }
                 this._div.appendChild(this._input);
 
                 this.appendChild(this._div);
@@ -78,7 +84,7 @@ require('inativ-x-eraser');
             onFilterUpdate: function onFilterUpdate() {
                 var event = new CustomEvent('filter', {
                     'detail': {
-                        'column': this.getAttribute('column'),
+                        filterType: this.getAttribute('filterType'),
                         filterValue: this._input.value
                     },
                     'bubbles': true,
