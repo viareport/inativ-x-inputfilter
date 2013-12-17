@@ -10,7 +10,7 @@
   "keywords": [
   ],
   "dependencies": {
-    "inativ-x-eraser": "0.1.0"
+    "inativ-x-eraser": "~0.1"
   },
   "devDependencies": {
     "bower": "0.7.0",
